@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-k)l%t4l^$b(irxp)y92y=xsdct!i7$$0)m!if8p3kbyex195rs
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -50,12 +50,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
-    "allauth.account.middleware.AccountMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = "social_auth_app.urls"
@@ -63,7 +63,7 @@ ROOT_URLCONF = "social_auth_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [str(BASE_DIR / "templates")],  # added for social auth templates
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [

@@ -18,9 +18,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
+from .views import Home
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(
         "accounts/", include("allauth.urls")
     ),  # allauth.urls is a module that contains all the urls for allauth
+    path("", Home.as_view(), name="home"),  # home page
 ]
