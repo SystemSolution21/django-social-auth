@@ -1,0 +1,60 @@
+{% extends "_base.html" %} {% load i18n socialaccount %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card mt-5 shadow-sm">
+        <div class="card-body">
+          <h3 class="card-title text-center mb-4">{% trans "Sign Up" %}</h3>
+
+          <form method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %} {% if form.non_field_errors %}
+            <div class="alert alert-danger">{{ form.non_field_errors }}</div>
+            {% endif %} {% for field in form.visible_fields %}
+            <div class="mb-3">
+              <label for="id_{{ field.name }}" class="form-label"
+                >{{ field.label }}</label
+              >
+              {{ field }} {% if field.errors %}
+              <div class="invalid-feedback d-block">
+                {{ field.errors|striptags }}
+              </div>
+              {% endif %}
+            </div>
+            {% endfor %}
+
+            <button class="btn btn-primary w-100" type="submit">
+              {% trans "Sign Up" %}
+            </button>
+          </form>
+
+          <div class="text-center mt-3">
+            <a href="{% url 'account_login' %}"
+              >{% trans "Already have an account? Sign In" %}</a
+            >
+          </div>
+
+          <hr />
+          <div class="text-center">{% trans "Or sign up with" %}</div>
+          <div class="d-flex gap-2 justify-content-center mt-3">
+            <a
+              href="{% provider_login_url 'github' process='signup' %}"
+              class="btn btn-dark"
+            >
+              <i class="fa fa-github fa-fw"></i>
+              <span> GitHub</span>
+            </a>
+            <a
+              href="{% provider_login_url 'google' process='signup' %}"
+              class="btn btn-danger"
+            >
+              <i class="fa fa-google fa-fw"></i>
+              <span> Google</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
