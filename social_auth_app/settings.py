@@ -63,8 +63,8 @@ ROOT_URLCONF = "social_auth_app.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [str(BASE_DIR / "templates")],  # added for social auth templates
-        "APP_DIRS": True,
+        "DIRS": [str(BASE_DIR / "templates")],  # Project-wide templates
+        "APP_DIRS": True,  # App-specific templates
         "OPTIONS": {
             "context_processors": [
                 "django.template.context_processors.request",
