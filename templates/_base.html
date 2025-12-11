@@ -14,6 +14,29 @@
     <title>Django Social Login</title>
   </head>
   <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">MySite</a>
+
+        <div class="collapse navbar-collapse justify-content-end">
+          <ul class="navbar-nav">
+            {% if user.is_authenticated %}
+              <li class="nav-item">
+                <span class="nav-link">Welcome {{ user.username }}</span>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-danger" href="{% url 'account_logout' %}">Logout</a>
+              </li>
+            {% else %}
+              <li class="nav-item">
+                <a class="btn btn-primary" href="{% url 'account_login' %}">Sign In</a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
     {% block content %} {% endblock content %}
   </body>
 </html>
