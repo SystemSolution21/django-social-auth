@@ -1,2 +1,22 @@
-{% comment %}Fallback provider-specific template for GitHub used by allauth.{%
-endcomment %} {% include "account/github/login.html" %}
+{% extends "_base.html" %} {% load i18n socialaccount %} {% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card mt-5 shadow-sm">
+        <div class="card-body text-center">
+          <h3 class="card-title mb-4">{% trans "Sign in with GitHub" %}</h3>
+          <p>
+            {% trans "You will be redirected to GitHub to authorize the
+            application." %}
+          </p>
+          <a href="{% provider_login_url 'github' %}" class="btn btn-dark">
+            <i class="fa fa-github fa-fw"></i>
+            <span> {% trans "Continue with GitHub" %}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
