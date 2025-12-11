@@ -1,11 +1,11 @@
-# Django Social Authentication Example
+# Django Social Authentication
 
 This is a sample Django project demonstrating how to implement social authentication using the powerful `django-allauth` library. It is pre-configured for social login with **Google** and **GitHub**.
 
 ## Features
 
 - User sign-in and sign-up using Google and GitHub.
-- Custom templates to override `django-allauth`'s default look and feel.
+- Custom templates to override `django-allauth`'s default templates.
 - Secure handling of authentication tokens and user sessions.
 - A clean, minimal setup that's easy to understand and build upon.
 
@@ -31,8 +31,8 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 ### Prerequisites
 
-- Python 3.8+
-- Pip (Python package installer)
+- Python 3.13
+- uv (Python package installer)
 
 ### Installation
 
@@ -45,21 +45,18 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 2. **Create and activate a virtual environment:**
 
-    ```sh
-    # For Windows
-    python -m venv venv
+    ```pwsh
+    # Create a virtual environment
+    uv venv
+    # Activate the virtual environment
     .\venv\Scripts\activate
-
-    # For macOS/Linux
-    python3 -m venv venv
-    source venv/bin/activate
     ```
 
 3. **Install dependencies:**
-    *(Note: A `requirements.txt` file should be created for a real project. For now, you can install `django-allauth` manually.)*
 
-    ```sh
-    pip install django "django-allauth>=0.58"
+    ```pwsh
+    # Install dependencies using pyproject.toml
+    uv sync
     ```
 
 4. **Configure Social Applications:**
@@ -71,13 +68,13 @@ Follow these instructions to get a copy of the project up and running on your lo
 
 5. **Apply database migrations:**
 
-    ```sh
+    ```pwsh
     python manage.py migrate
     ```
 
 6. **Run the development server:**
 
-    ```sh
+    ```pwsh
     python manage.py runserver
     ```
 
