@@ -15,14 +15,11 @@ wheels/
 # vscode files
 .vscode/
 
-# Database
-db.sqlite3
-
 # Secrets
 secrets.json
 
 # Github credentials
-.github/
+.github/*.txt
 
 # Google credentials
-.google/
+.google/*.txt
