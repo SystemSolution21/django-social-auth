@@ -11,4 +11,6 @@ dependencies = [
     "oauthlib>=3.3.1",
     "requests>=2.32.5",
     "cryptography>=46.0.3",
+    "python-dotenv>=1.2.1",
+    "psycopg2-binary>=2.9.11",
 ]
