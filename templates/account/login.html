@@ -20,7 +20,7 @@
                 type="text"
                 name="{{ form.login.name }}"
                 id="id_login"
-                value="{{ form.login.value }}"
+                value="{{ form.login.value|default_if_none:'' }}"
                 class="form-control"
                 required
                 autofocus
